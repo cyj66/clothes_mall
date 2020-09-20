@@ -1,6 +1,7 @@
 <template>
   <div class="goods-item" @click="itemClick">
-    <img :src="goodsItem.show.img" alt="">
+    <!-- 添加了图片懒加载插件，不用":src"了，用v-lazy" -->
+    <img v-lazy="showImage" alt="">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -28,15 +29,19 @@
           query:{
             iid:this.goodsItem.iid
           }
-        })
+        });
       }
-    }
+    },
+    computed:{
+      showImage(){
+        return this.goodsItem.image||this.goodsItem.show.img   //有两个地方会用到该组件，取数据的方式不同
+      },
+    },
   }
 </script>
 
 <style scoped>
   .goods-item {
-    padding-bottom: 40px;
     position: relative;
     width: 48%;
   }
@@ -44,6 +49,7 @@
   .goods-item img {
     width: 100%;
     border-radius: 5px;
+    margin-bottom:35px
   }
 
   .goods-info {
@@ -52,10 +58,8 @@
     bottom: 5px;
     left: 0;
     right: 0;
-    overflow: hidden;
     text-align: center;
   }
-
   .goods-info p {
     overflow: hidden;
     text-overflow: ellipsis;

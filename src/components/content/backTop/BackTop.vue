@@ -1,16 +1,44 @@
 <template>
-  <div class="back-top" @click="backClick">
+  <div class="back-top" @click="backClick" v-show="isShowBackTop">
     <img src="~assets/img/common/top.png" alt="">
   </div>
 </template>
 
 <script>
+import {bestScrollY} from 'common/utils.js'
 	export default {
     name: "BackTop",
+    data(){
+      return {
+        isShowBackTop:true
+      }
+    },
     methods: {
       backClick(){
-        window.scroll(0,0);
+        console.log(window.pageYOffset)
+        bestScrollY(0,10)
       },
+      ShowBackTop(){
+        window.onscroll=function(){
+          // console.log('scroll')
+          if(window.pageYOffset>=1000){
+            return true;
+          }
+          else{
+            return false;
+          }
+        }
+      }
+    },
+    mounted(){
+      //监听窗口事件可在mounted中监听
+      window.onscroll=()=>{
+        if(window.pageYOffset>1000){
+          this.isShowBackTop=true
+        }else{
+          this.isShowBackTop=false
+        }
+      }
     }
   }
  

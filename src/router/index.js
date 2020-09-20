@@ -16,11 +16,11 @@ const routes=[
     },
     {
         path:'/home',
-        component:Home
+        component:Home,       
     },
     {
         path:'/category',
-        component:Category
+        component:Category,
     },
     {
         path:'/cart',

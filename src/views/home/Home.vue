@@ -11,6 +11,7 @@
         <goods-list :goods="goods[currentType].list"></goods-list> 
         <back-top></back-top>
     </div>
+
 </template>
 
 <script>
@@ -29,8 +30,8 @@ import BackTop from 'components/content/backTop/BackTop'
 import {
     getHomeMultidata,
     getHomeGoods,
-    } from 'network/home'
-
+    } from 'network/home' 
+import {bestScrollY} from 'common/utils'
 
 export default {
     components:{
@@ -49,7 +50,7 @@ export default {
                 'sell':{page:0,list:[]},
             },
             currentType:'pop',
-            saveY:0
+            saveY:100
         }
     },
     created(){
@@ -98,7 +99,16 @@ export default {
                 this.goods[type].list.push(...res.data.list);
                 this.goods[type].page+=1;
             })
-        }    
+        },
+    },
+    activated(){
+        // console.log('activated')
+        bestScrollY(this.saveY,1)
+    },
+    deactivated(){
+        // console.log('deactivated')
+        this.saveY=window.pageYOffset;
+        console.log(this.saveY)
     }
 }
 </script>

@@ -9,8 +9,9 @@ import VueLazyload from 'vue-lazyload'
 import toast from 'components/common/toast/index'
 
 Vue.config.productionTip = false
+Vue.prototype.$bus=new Vue()
 
-//安装toast插件
+//安装toast插件,并执行插件中的install方法
 Vue.use(toast)
 //消除移动端点击300ms延迟问题
 FastClick.attach(document.body)

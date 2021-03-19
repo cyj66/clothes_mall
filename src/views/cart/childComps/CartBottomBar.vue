@@ -81,7 +81,7 @@ export default {
     .calculate{
         text-align: center;
         width:90px;
-        background-color:red;
+        background-color:var(--color-tint);
         color:#eee
     }
 </style>

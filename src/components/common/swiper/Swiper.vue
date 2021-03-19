@@ -1,15 +1,13 @@
 <template>
     <div id="hy-swiper">
-      <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
-        <slot></slot>
-      </div>
-      <slot name="indicator">
-      </slot>
-      <div class="indicator">
-        <slot name="indicator" v-if="showIndicator && slideCount>1">
-          <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index"></div>
-        </slot>
-      </div>
+        <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+            <slot></slot>
+        </div>
+        <div class="indicator">
+            <slot name="indicator" v-if="showIndicator && slideCount>1">
+                <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index"></div>
+            </slot>
+        </div>
     </div>
 </template>
 
@@ -57,13 +55,13 @@
        * 定时器操作
        */
       startTimer: function () {
-		    this.playTimer = window.setInterval(() => {
+		    this.playTimer = setInterval(() => {
 		      this.currentIndex++;
 		      this.scrollContent(-this.currentIndex * this.totalWidth);
         }, this.interval)
       },
       stopTimer: function () {
-        window.clearInterval(this.playTimer);
+        clearInterval(this.playTimer);
       },
 
       /**
@@ -88,7 +86,7 @@
        * 校验正确的位置
        */
       checkPosition: function () {
-        window.setTimeout(() => {
+        setTimeout(() => {
           // 1.校验正确的位置
           this.swiperStyle.transition = '0ms';
           if (this.currentIndex >= this.slideCount + 1) {

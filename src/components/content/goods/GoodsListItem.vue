@@ -1,7 +1,8 @@
 <template>
   <div class="goods-item" @click="itemClick">
-    <!-- 添加了图片懒加载插件，不用":src"了，用v-lazy" -->
-    <img v-lazy="showImage" alt="">
+    <!-- 添加了图片懒加载插件，不用":src"了，用v-lazy",
+    @load是vue中自带方法监听是否加载完成，原生中是img.load=fn() -->
+    <img v-lazy="showImage" alt="" @load="imageLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price">{{goodsItem.price}}</span>
@@ -30,12 +31,19 @@
             iid:this.goodsItem.iid
           }
         });
+      },
+      imageLoad(){
+        if(this.$route.path.indexOf('/home')!==-1){
+          this.$bus.$emit('homeItemImageLoad')
+        }else{
+          this.$bus.$emit('detailItemImageLoad')
+        }
       }
     },
     computed:{
       showImage(){
         return this.goodsItem.image||this.goodsItem.show.img   //有两个地方会用到该组件，取数据的方式不同
-      },
+      }
     },
   }
 </script>

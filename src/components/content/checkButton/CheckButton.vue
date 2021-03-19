@@ -9,7 +9,8 @@ export default {
     props:{
         isChecked:{
             type:Boolean,
-            default:false
+            //该商城默认选中的话应该在具体的模型对象（mutations）中修改，而不是在此处组件内修改
+            default:false    
         }
     }
 }
@@ -21,7 +22,7 @@ export default {
     border:2px solid #aaa
 }
 .check{
-    border-color:red;
-    background-color:red;
+    border-color:var(--color-tint);
+    background-color:var(--color-tint);
 }
 </style>

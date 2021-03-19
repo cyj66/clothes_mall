@@ -16,11 +16,13 @@ export default {
     },
     computed:{
       isActive(){
+        //console.log(this.path)
+        //console.log(this.$route.path)
         return this.$route.path.indexOf(this.path)!==-1   //查找当前活跃路由路径中是否存在path属性值
       },
       activeStyle(){
         if(this.isActive){
-          return {color:this.activeColor};
+          return {color:this.activeColor};    //动态监听style属性需要，应返回一个对象
         }
         else{
           return {};

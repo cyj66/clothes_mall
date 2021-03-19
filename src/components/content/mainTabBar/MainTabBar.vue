@@ -1,6 +1,7 @@
 <template>
     <tab-bar>
       <!-- activeColor="blue" -->
+      <!-- path不需要动态绑定，因为/home是字符串，不是变量 -->
       <tab-bar-item path='/home'>   
         <div slot="item-icon">
           <svg t="1597460185807" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4602" width="200" height="200"><path d="M555.541333 117.994667l312.874667 224.565333A117.333333 117.333333 0 0 1 917.333333 437.866667V800c0 64.8-52.533333 117.333333-117.333333 117.333333H640V746.666667c0-70.688-57.312-128-128-128s-128 57.312-128 128v170.666666H224c-64.8 0-117.333333-52.533333-117.333333-117.333333V437.877333a117.333333 117.333333 0 0 1 48.917333-95.317333l312.874667-224.565333a74.666667 74.666667 0 0 1 87.082666 0z" p-id="4603"></path></svg>
@@ -46,7 +47,7 @@
 
 <script>
 import TabBar from 'components/common/tabbar/TabBar.vue';    //路径在webpack.base.conf.js起了别名,在js中直接使用即可，在html中要在前面加~
-import TabBarItem from 'components/common/tabbar/Tabbaritem';
+import TabBarItem from 'components/common/tabbar/TabBarItem';
 
 export default {
    components:{

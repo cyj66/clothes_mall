@@ -5,7 +5,7 @@
           <div slot="center">购物车({{cartLength}})</div>
       </nav-bar>
       <!-- 2.列表 -->
-      <cart-list class="cart-list"></cart-list>
+      <cart-list class="cart-list"></cart-list> 
       <!-- 3.底部汇总 -->
       <cart-bottom-bar></cart-bottom-bar>
   </div>
@@ -37,6 +37,9 @@ export default {
     top:0;
 }
 .cart-list{
-    margin-top:44px
+    margin-top:44px;
+    height:calc(100vh - 44px - 44px - 49px);
+    overflow:scroll
 }
+
 </style>

@@ -41,7 +41,7 @@ export default {
     filters:{
         showDate(value){
             //1.将时间戳转成Date对象
-            const date=new Date(value*1000)     //以毫秒形式呈现
+            const date=new Date(value*1000)     //后台给的是秒
             //2.将date格式化
             return formatDate(date,'yyyy-MM-dd hh:mm:ss')
         }

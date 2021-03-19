@@ -1,3 +1,4 @@
+//mutations中每个方法尽可能单一
 export default {
     addCounter(state,payload){
         // console.log(payload)

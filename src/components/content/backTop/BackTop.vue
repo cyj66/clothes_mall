@@ -1,11 +1,11 @@
 <template>
-  <div class="back-top" @click="backClick" v-show="isShowBackTop">
+  <div class="back-top"
+   v-show="isShowBackTop">
     <img src="~assets/img/common/top.png" alt="">
   </div>
 </template>
 
 <script>
-import {bestScrollY} from 'common/utils.js'
 	export default {
     name: "BackTop",
     data(){
@@ -14,10 +14,10 @@ import {bestScrollY} from 'common/utils.js'
       }
     },
     methods: {
-      backClick(){
-        console.log(window.pageYOffset)
-        bestScrollY(0,10)
-      },
+      // backClick(){
+      //   console.log(window.pageYOffset)
+      //   bestScrollY(0,10)
+      // },
       ShowBackTop(){
         window.onscroll=function(){
           // console.log('scroll')

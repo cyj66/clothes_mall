@@ -11,7 +11,7 @@ Vue.use(VueRouter)
 
 const routes=[
     {
-        path:'',
+        path:'',     //不能省略
         redirect:'/home'
     },
     {

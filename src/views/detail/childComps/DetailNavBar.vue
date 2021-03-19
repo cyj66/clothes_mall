@@ -39,7 +39,7 @@ export default {
 .nav-bar{
   z-index: 9;
   background-color: #fff;
-  width:100%;
+  width:105%;
 }
 .nav-bar img{
   margin-top:12px ;
